@@ -21,9 +21,7 @@
 
 const form = document.querySelector('#student-form');
 const tbodyEL = document.querySelector('tbody');
-
 const tableEL = document.querySelector('table');
-
 
 form.addEventListener('submit',insertStudent);
 tableEL.addEventListener('click',onDeleteRow);
@@ -35,7 +33,7 @@ function insertStudent(event) {
 
   const studentId = document.getElementById("student-id").value;
   const studentName = document.getElementById("student-name").value;
-  const studentGender = document.getElementById("validationFormCheck2","validationFormCheck3").value;
+  const studentGender = document.getElementsByName("radio-stacked").value;
   const studentFaculty = document.getElementById('add-faculty').value;
   const studentProgramFaculty = document.getElementById('add-prodi').value;
 
@@ -78,9 +76,3 @@ function searchFun(){
   }
 
 }
-
-// function getFacultyValue(){
-//   var celectedVaculty = document.getElementById('filter-faculty');
-
-// }
-  
