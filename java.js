@@ -33,7 +33,7 @@ function insertStudent(event) {
 
   const studentId = document.getElementById("student-id").value;
   const studentName = document.getElementById("student-name").value;
-  const studentGender = document.getElementsByName("radio-stacked").value;
+  const studentGender = document.querySelector('.form-check-input').value;
   const studentFaculty = document.getElementById('add-faculty').value;
   const studentProgramFaculty = document.getElementById('add-prodi').value;
 
