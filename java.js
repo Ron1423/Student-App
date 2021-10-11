@@ -21,7 +21,7 @@
 
 const form = document.querySelector('#student-form');
 const tbodyEL = document.querySelector('tbody');
-const tableEL = document.querySelector('table');
+const tableEL = document.getElementById('myTable');
 
 form.addEventListener('submit',insertStudent);
 tableEL.addEventListener('click',onDeleteRow);
@@ -51,12 +51,12 @@ function insertStudent(event) {
 
 //delete student
 function onDeleteRow(event){
-    if(!event.target.classList.contains('btn-danger')){
-       return;
-    }
-     const btn = event.target;
-     btn.closest("tr").remove();
- }
+  if(!event.target.classList.contains('btn-danger')){
+     return;
+  }
+   const btn = event.target;
+   btn.closest("tr").remove();
+}
 
 //search name
 function searchFun(){
@@ -66,8 +66,8 @@ function searchFun(){
   for(var i=0; i<tr.length; i++){
     let td = tr[i].getElementsByTagName('td')[1];
     if(td){
-      let textvlaue = td.textContent || td.innerHTML;
-      if(textvlaue.toUpperCase().indexOf(filter) > -1){
+      let textvalue = td.textContent || td.innerHTML;
+      if(textvalue.toUpperCase().indexOf(filter) > -1){
         tr[i].style.display="";
       }else{
         tr[i].style.display = "none";
@@ -75,4 +75,40 @@ function searchFun(){
     }
   }
 
+}
+
+//filter by faculty
+function getFacultyValue(){
+  let filter = document.getElementById('filter-faculty').value.toUpperCase();
+  let myTable = document.getElementById('myTable');
+  let tr = myTable.getElementsByTagName('tr');
+  for(var i=0; i<tr.length; i++){
+    let td = tr[i].getElementsByTagName('td')[3];
+    if(td){
+      let textvalue = td.textContent || td.innerHTML;
+      if(textvalue.toUpperCase().indexOf(filter) > -1){
+        tr[i].style.display="";
+      }else{
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+
+//filter by prodi
+function getProdiValue(){
+  let filter = document.getElementById('filter-prodi').value.toUpperCase();
+  let myTable = document.getElementById('myTable');
+  let tr = myTable.getElementsByTagName('tr');
+  for(var i=0; i<tr.length; i++){
+    let td = tr[i].getElementsByTagName('td')[4];
+    if(td){
+      let textvalue = td.textContent || td.innerHTML;
+      if(textvalue.toUpperCase().indexOf(filter) > -1){
+        tr[i].style.display="";
+      }else{
+        tr[i].style.display = "none";
+      }
+    }
+  }
 }
